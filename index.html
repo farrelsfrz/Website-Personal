@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <div class="logo-text"></div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="https://github.com/farrelsfrz/portfolio.git">GitHub</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section id="home">
+            <div class="container">
+                <div class="hero-pic">
+                    <img src="assets/pp.jpg" alt="profile pic">
+                </div>
+                <div class="hero-text">
+                    <h5>Hi I'm <span class="input">Frontend Developer</span></h5>
+                    <h1>Balyan Farrel Safaraz</h1>
+                    <p> I am a student who has an interest in the IT field with expertise in web development and UI/UX design. 
+                        Has the ability to combine aesthetic design with efficient functionality, 
+                        and is committed to continuing to develop technical and creative skills in the fields of technology and web design.
+                    </p>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <a href="https://www.canva.com/design/DAGHCb9OUjw/KU5ZBLTvQCdgDMAtIPaS3w/edit?utm_content=DAGHCb9OUjw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="btn active">Download CV</a>
+            </div>
+
+            <!-- Skill Progress Bars -->
+            <div class="skills">
+                <div class="skill">
+                    <div class="skill-name">HTML <span id="html-percentage"></span></div>
+                    <div class="progress">
+                        <div class="progress-bar" id="html-bar" style="width: 75%;">75%</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">CSS <span id="css-percentage"></span></div>
+                    <div class="progress">
+                        <div class="progress-bar" id="css-bar" style="width: 60%;">60%</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">JavaScript <span id="JavaScript"></span></div>
+                    <div class="progress">
+                        <div class="progress-bar" id="javascript-bar" style="width: 50%;">50%</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">MySQL <span id="MySQL"></span></div>
+                    <div class="progress">
+                        <div class="progress-bar" id="MySQL" style="width: 40%;">40%</div>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+            <section id="projects">
+            <!-- Project Gallery -->
+            <div class="project-gallery">
+                <h2>Projects</h2>
+                <div class="slider">
+                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <div class="slides">
+                        <img src="assets/p1home1.png" alt="Project 1" class="active">
+                        <img src="assets/p1dp.png" alt="Project 2">
+                        <img src="assets/p1cart.png" alt="Project 3">
+                        <!-- Add more images as needed -->
+                    </div>
+                    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                </div>
+            </div>
+            </section>
+        </div>
+    </div>
+
+    <section id="contact">
+    <footer>
+        <div class="social">
+            <a href="https://wa.me/6281395798838"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/_balyanfarrel"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:safaraz28@gmail.com"><i class="fab fa-envelope"></i></a>
+        </div>
+    </footer>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        // Navbar Toggle
+        var togglebtn = document.querySelector(".togglebtn");
+        var nav = document.querySelector(".navlinks");
+
+        togglebtn.addEventListener("click", function(){
+            this.classList.toggle("click");
+            nav.classList.toggle("open");
+        });
+
+        // Typed.js Initialization
+        var typed = new Typed(".input",{
+            strings: ["Frontend Developer","UX Designer","Web Developer"],
+            typeSpeed: 70,
+            backSpeed: 55,
+            loop: true
+        });
+
+        let slideIndex = 0;
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.slides img');
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? 'block' : 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            showSlides(slideIndex);
+        });
+    </script>
+
+</body>
+</html>

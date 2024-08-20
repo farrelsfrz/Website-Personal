@@ -1,0 +1,384 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+body {
+    overflow-x: hidden;
+    background: linear-gradient(to right, #1a1a1a, #333); /* Tambahan gradien latar belakang */
+}
+.hero-header {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(34, 34, 34, 0.8), rgba(0, 0, 0, 0.9)), url('images/background.jpg'); /* Ganti dengan gambar latar belakang */
+    background-size: cover; /* Tambahan */
+    background-position: center; /* Tambahan */
+    padding-top: 100px;
+    display: flex; /* Tambahan */
+    flex-direction: column; /* Tambahan */
+    align-items: center; /* Tambahan */
+    text-align: center; /* Tambahan */
+}
+.wrapper {
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+header {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(34, 34, 34, 0.9);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s ease;
+}
+header:hover {
+    background: rgba(34, 34, 34, 1);
+}
+.logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo i {
+    height: 45px;
+    width: 45px;
+    background-color: #007ced;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.logo i:hover {
+    transform: rotate(360deg);
+}
+.logo .logo-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+nav .togglebtn {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 45px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+    display: none;
+}
+nav .togglebtn span {
+    display: block;
+    background-color: #007ced;
+    margin: 5px 0px;
+    width: 100%;
+    height: 3px;
+    transition: 0.3s;
+    transition-property: transform, opacity;
+}
+nav .navlinks {
+    list-style-type: none;
+    display: flex; /* Tambahan */
+    justify-content: center; /* Tambahan */
+}
+nav .navlinks li {
+    display: inline-block;
+    margin: 0 15px; /* Tambahan */
+}
+nav .navlinks li a {
+    color: #e5e5e5;
+    margin-right: 2.5rem;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+nav .navlinks li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #007ced;
+    transition: width 0.3s ease;
+}
+nav .navlinks li a:hover::after {
+    width: 100%;
+}
+nav .navlinks li a:hover {
+    color: #007ced;
+    transform: translateY(-3px);
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 4rem;
+}
+.container .hero-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    transition: transform 0.5s ease;
+}
+.hero-pic:hover {
+    transform: scale(1.05);
+}
+.hero-pic img {
+    height: 100%;
+    width: 100%;
+    transition: 0.5s;
+}
+.hero-pic img:hover {
+    transform: scale(1.2);
+}
+.hero-text {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.hero-text h5 {
+    color: #e5e5e5;
+    font-size: 14px;
+}
+.hero-text h5 span {
+    color: #007ced;
+    font-size: 16px;
+}
+.hero-text h1 {
+    color: #ffcc00; /* Ubah warna judul */
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+}
+.hero-text h1:hover {
+    transform: translateY(-5px);
+}
+.hero-text p {
+    color: #e5e5e5;
+}
+.btn-group {
+    margin: 45px 0;
+}
+.btn-group .btn {
+    border-color: #d5d5d5;
+    color: #fff;
+    background-color: #333;
+    padding: 12px 25px;
+    margin: 5px 0px;
+    margin-right: 7px;
+    border-radius: 30px;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+    transition: all 0.3s ease;
+}
+.btn-group .btn:hover {
+    background-color: #007ced;
+    border-color: #007ced;
+    transform: translateY(-3px);
+}
+.btn.active {
+    border-color: #007ced;
+}
+.hero-text .social i {
+    color: #e5e5e5;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+.hero-text .social i:hover {
+    color: #007ced;
+    transform: rotate(360deg);
+}
+/* Responsive design & displaying navbar for small screen */
+@media (max-width: 930px) {
+    nav .togglebtn {
+        display: initial;
+    }
+    .click {
+        top: 45px;
+    }
+    .click span {
+        position: absolute;
+        margin-top: 12px;
+    }
+    .click span:first-child {
+        transform: rotate(-40deg);
+    }
+    .click span:nth-child(2) {
+        opacity: 0;
+        margin: 0;
+    }
+    .click span:last-child {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    nav .navlinks {
+        position: absolute;
+        top: 110px;
+        right: -100%;
+        bottom: 0;
+        width: 60%;
+        height: 100vh;
+        background-color: rgba(34, 34, 34, 0.9);
+        z-index: 3;
+        box-shadow: 5px 13px 30px rgba(0,0,0,0.1);
+        transition: 0.5s;
+        padding: 25px 0px;
+        flex-direction: column; /* Tambahan */
+        align-items: center; /* Tambahan */
+    }
+    nav .navlinks li {
+        display: block;
+    }
+    nav .navlinks li a {
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    nav .navlinks.open {
+        right: 0;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding-top: 2rem;
+    }
+    .hero-text {
+        padding: 40px 0px;
+    }
+}
+
+.skills {
+    margin-top: 50px;
+    display: flex; /* Tambahan */
+    flex-direction: column; /* Tambahan */
+    align-items: center; /* Tambahan */
+}
+.skill {
+    margin: 10px 0;
+    width: 80%; /* Tambahan */
+}
+.skill-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #e5e5e5;
+}
+.progress {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    background: #007ced;
+    border-radius: 10px;
+    text-align: right;
+    line-height: 20px;
+    color: white;
+    padding-right: 5px;
+    box-sizing: border-box;
+    transition: width 1s ease-in-out;
+}
+
+footer {
+    background: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+footer .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .social a {
+    color: #e5e5e5;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+footer .social a:hover {
+    color: #007ced;
+    transform: translateY(-5px);
+}
+
+.project-gallery {
+    margin-top: 50px;
+    text-align: center;
+}
+.project-gallery h2 {
+    color: #e5e5e5;
+    margin-bottom: 20px;
+}
+.slider {
+    position: relative;
+    width: 80%;
+    margin: auto;
+}
+.slides {
+    display: flex;
+    overflow: hidden;
+}
+.slides img {
+    width: 100%;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+.slides img.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 50%;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.next {
+    right: -20px;
+}
+.prev {
+    left: -20px;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
